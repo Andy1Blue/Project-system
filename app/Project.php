@@ -17,13 +17,22 @@ class Project extends Model
     protected static function boot() {
         parent::boot();
 
+        // Event hook
         static::created(function ($project) {
             // when project was created
             // Send e-mail
-            \Mail::to($project->owner->email)->send(
-                new ProjectCreated($project)
-            );
+            // \Mail::to($project->owner->email)->send(
+            //     new ProjectCreated($project)
+            // );
         });
+
+        // static::deleted(function ($project) {
+        //     // when project was deleted
+        //     // Send e-mail
+        //     \Mail::to($project->owner->email)->send(
+        //         new ProjectDeleted($project)
+        //     );
+        // });
     }
 
     public function owner() {
