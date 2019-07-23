@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Mail\ProjectCreated;
 use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
@@ -12,6 +13,18 @@ class Project extends Model
     // ];
 
     protected $guarded = [];
+
+    protected static function boot() {
+        parent::boot();
+
+        static::created(function ($project) {
+            // when project was created
+            // Send e-mail
+            \Mail::to($project->owner->email)->send(
+                new ProjectCreated($project)
+            );
+        });
+    }
 
     public function owner() {
             return $this->belongsTo(User::class);
