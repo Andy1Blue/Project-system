@@ -25,7 +25,9 @@
             </div>
         </div>
 
-        @include('errors')
+        <div class="container">
+            @include('errors')
+        </div>
         
     </form>
 

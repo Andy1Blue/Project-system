@@ -41,4 +41,8 @@
         </div>
     </form>
 
+    <div class="container">
+        @include('errors')
+    </div>
+
 @endsection

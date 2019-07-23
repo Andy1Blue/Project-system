@@ -41,4 +41,8 @@ class User extends Authenticatable
     {
         return (int)$this->id;
     }
+
+    public function projects() {
+        return $this->hasMany(Project::class, "owner_id"); // select * from projects where owner_id = THIS INSTACE OF USER
+    }
 }
