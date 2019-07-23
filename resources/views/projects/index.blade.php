@@ -15,7 +15,7 @@
                     <h3 class="card-title">
                             <a href="/projects/{{ $project->id }}"><b>{{ $project->title }}</b></a>
                     </h3>
-                    <span class="badge badge-primary text-wrap h6">added by {{ $project->owner_id }}</span>
+                    <span class="badge badge-primary text-wrap h6">added by {{ $project->owner->user }}</span>
                     <span class="badge badge-primary text-wrap h6">(tasks: {{ $project->tasks->count() }})</span>
                     <span class="badge badge-primary text-wrap h6">edit</span>
                     <span class="badge badge-primary text-wrap h6">delete</span>
