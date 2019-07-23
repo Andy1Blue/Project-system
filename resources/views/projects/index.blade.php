@@ -17,8 +17,11 @@
                     </h3>
                     <span class="badge badge-primary text-wrap h6">added by {{ $project->owner->user }}</span>
                     <span class="badge badge-primary text-wrap h6">(tasks: {{ $project->tasks->count() }})</span>
-                    <span class="badge badge-primary text-wrap h6">edit</span>
-                    <span class="badge badge-primary text-wrap h6">delete</span>
+                    <span class="badge badge-primary text-wrap h6">(created at: {{ $project->created_at }})</span>
+                    <p>
+                      <span class="badge badge-primary text-wrap h6" style="background-color:red;"><a href="/projects/{{ $project->id }}/edit" style="color:white;">edit</a></span>
+                      <span class="badge badge-primary text-wrap h6" style="background-color:red;"><a href="/projects/{{ $project->id }}/edit" style="color:white;">delete</a></span>
+                    </p>
                     <p class="card-text">
                         <span class="text-justify font-italic">{{ $project->description }} <a href="/projects/{{ $project->id }}" class="badge badge-primary text-wrap h6">show more...</a></span>
                     </p>

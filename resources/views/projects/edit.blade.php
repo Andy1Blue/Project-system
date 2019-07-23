@@ -36,7 +36,8 @@
 
         <div class="field">
             <div class="control">
-                <button type="submit" class="button">Delete Project</button>
+                <button type="submit" class="button" style="color:white;background-color:red;">Delete Project *</button>
+                <p>* you will permanently delete the project!</p>
             </div>
         </div>
     </form>

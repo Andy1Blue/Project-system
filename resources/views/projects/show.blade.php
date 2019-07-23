@@ -4,10 +4,15 @@
     
     <h1 style="margin-top:2px;color:black;">
         {{ $project->title }}
-        <form action="/projects/{{ $project->id }}/edit/">
-            <button type="submit" style="font-size:10px;margin-bottom:20px;" class="button is-link">Edit</button>
-        </form>
     </h1>
+
+    <p class="container"></p>
+    <span class="badge badge-primary text-wrap h6">added by {{ $project->owner->user }}</span>
+        <span class="badge badge-primary text-wrap h6">(created at: {{ $project->created_at }})</span>
+        <p>
+          <span class="badge badge-primary text-wrap h6" style="background-color:red;"><a href="/projects/{{ $project->id }}/edit" style="color:white;">edit</a></span>
+          <span class="badge badge-primary text-wrap h6" style="background-color:red;"><a href="/projects/{{ $project->id }}/edit" style="color:white;">delete</a></span>
+        </p>
 
     <p class="box" style="background-color:gray;color:white;padding:10px;">
         <i>
@@ -18,7 +23,7 @@
     {{-- @if ($project->tasks->count()) --}}
     <div class="box" style="margin-top:20px;margin-bottom:20px;">
         <h1 style="margin-top:2px;color:black;">
-            Tasks
+            Tasks ({{ $project->tasks->count() }})
             <div class="field" style="margin-bottom:20px;">
                 <div class="control">
                     <form method="POST" action="/projects/{{ $project->id }}/tasks">
